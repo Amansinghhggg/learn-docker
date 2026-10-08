@@ -1,0 +1,23 @@
+{
+  "name": "dock",
+  "version": "1.0.0",
+  "description": "A lightweight, clean **MERN application** designed for managing user profiles (Name, Email, Phone Number, Physical Address, Password, Role, and Bio).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd server && npm start\" \"cd client && npm run dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amansinghhggg/learn-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amansinghhggg/learn-docker/issues"
+  },
+  "homepage": "https://github.com/Amansinghhggg/learn-docker#readme",
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
