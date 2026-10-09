@@ -1,0 +1,56 @@
+# -------------------------------------------------------------
+# GitHub Actions Basic Workflow for Beginners
+# -------------------------------------------------------------
+# File location: .github/workflows/main.yml
+# GitHub automatically detects any YAML file inside .github/workflows/
+
+name: Learn GitHub Actions
+
+# 1. Triggers: When should this workflow run?
+on:
+  # Triggers when code is pushed to the main (or master) branch
+  push:
+    branches: [ "main", "master" ]
+
+  # Triggers when a Pull Request is opened or updated targeting main/master
+  pull_request:
+    branches: [ "main", "master" ]
+
+  # Allows you to manually run this workflow from GitHub's "Actions" tab
+  workflow_dispatch:
+
+# 2. Jobs: What tasks should run?
+jobs:
+  build-and-test:
+    name: Hello World & Environment Check
+    # The virtual machine environment to run the job on
+    runs-on: ubuntu-latest
+
+    # 3. Steps: A sequence of tasks executed inside the runner
+    steps:
+      # Step 1: Check out your repository code so the runner can access it
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up a programming environment (e.g., Node.js)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 3: Run a simple shell command
+      - name: Print a greeting
+        run: |
+          echo "Hello from GitHub Actions!"
+          echo "The workflow is running on an Ubuntu runner."
+
+      # Step 4: Verify installed tool versions
+      - name: Check Node and NPM version
+        run: |
+          node -v
+          npm -v
+
+      # Step 5: (Optional) Install dependencies example
+      - name: Verify project files exist
+        run: |
+          ls -la
